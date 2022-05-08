@@ -1,4 +1,5 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { password } = require('pg/lib/defaults');
+const {  DataTypes, Model } = require('sequelize');
 const sequelize = require("../sequelize");
 
 
@@ -13,6 +14,14 @@ User.init({
   lastName: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
   }
 }, {
   sequelize,
