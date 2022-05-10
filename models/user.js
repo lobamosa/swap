@@ -32,6 +32,10 @@ module.exports = (sequelize, DataTypes) => {
     library: {
       type: DataTypes.ARRAY(DataTypes.STRING),
 
+    },
+    whishlist: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+
     }
   }, {
     sequelize,
