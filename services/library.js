@@ -5,9 +5,8 @@ class Library {
     {
         
     }
-    async get_games_from_user(username)
+    async get_games_from_user(user)
     {
-        const user = await User.findOne({where: {username: username}})
         const library = user.library;
         return library; 
     }
