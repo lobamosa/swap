@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     library: {
-      type: DataTypes.RANGE(DataTypes.STRING),
+      type: DataTypes.ARRAY(DataTypes.STRING),
 
     }
   }, {
