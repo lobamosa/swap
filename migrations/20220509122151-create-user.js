@@ -25,6 +25,9 @@ module.exports = {
       library: {
         type: Sequelize.ARRAY(Sequelize.STRING)
       },
+      whishlist: {
+        type: Sequelize.ARRAY(Sequelize.STRING)
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
