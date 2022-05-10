@@ -8,7 +8,7 @@ describe('Authentication module', async function () {
       const username = "johndoe";
       const email = "jdoe@gm.com";
       const password = "aPassToPassThePass";
-      const library = {"mgs5", "ff7"};
+      const library = ["mgs5", "ff7"];
       const user =  await Auth_class.create_user(username, email, password, library)
       expect(user.username).to.equal(username);
     });
