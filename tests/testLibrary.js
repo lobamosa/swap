@@ -1,8 +1,6 @@
 var assert = require('assert');
 const { expect } = require('chai');
-const { password } = require('pg/lib/defaults');
 const {User} = require('../models/');
-const Auth = require('../services/auth');
 const Library = require('../services/library');
 
 describe('Library service', () => {

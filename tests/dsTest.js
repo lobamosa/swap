@@ -1,7 +1,4 @@
-var assert = require('assert');
-const bcrypt = require('bcrypt');
 const { expect } = require('chai');
-const lib = require('pg-hstore');
 const binarySearch = require('../services/ds');
 
 describe('data structure', () => {
