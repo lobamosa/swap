@@ -12,11 +12,11 @@ class Auth
         return is_valid;
 
     }
-    async create_user(user)
+    async create_user(username, email, password, library, whishlist)
     {   
         const saltRounds = 10;
-        const hash = await this.hash_password(user.password, saltRounds);
-        const user_instance = await User.create({username: user.username, email: user.email, password: hash, library: user.library})
+        const hash = await this.hash_password(password, saltRounds);
+        const user_instance = await User.create({username: username, email: email, password: hash, library: library, whishlist: whishlist})
         return user_instance;
     }
     async hash_password(password, saltRounds)
