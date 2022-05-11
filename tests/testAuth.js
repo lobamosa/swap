@@ -1,9 +1,7 @@
-var assert = require('assert');
-const bcrypt = require('bcrypt');
 const { expect } = require('chai');
 const { Sequelize, User } = require('../models/');
 const Auth = require('../services/auth');
-
+const bcrypt = require("bcryptjs");
 describe('Authentication module', async function () { 
     it('expect password to be encrypted',async () => {
       const Auth_class = new Auth
