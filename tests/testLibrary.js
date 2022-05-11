@@ -15,7 +15,7 @@ describe('Library service', () => {
         const user = new User
         user.username = username;
         user.library = library;
-        const library_from_user = await service.get_games_from_user(user);
+        const library_from_user = await service.get_library_from_user(user);
         expect(library_from_user).to.be.an('array')
     })
     it('should retrieve the game wanted in the  library', async () => {
