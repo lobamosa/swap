@@ -6,7 +6,7 @@ const { Sequelize } = require('sequelize');
 //     host: 5432
 //   });
 const sequelizeConfig = {
-    host: "localhost",
+    host: "postgres",
     dialect: "postgres",
     schema: "swap",
     timezone: "Europe/Paris",
