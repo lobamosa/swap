@@ -2,20 +2,9 @@ var assert = require('assert');
 const bcrypt = require('bcrypt');
 const { expect } = require('chai');
 const { Sequelize, User } = require('../models/');
-var SequelizeMock = require('sequelize-mock');
-
 const Auth = require('../services/auth');
-describe('Authentication module', async function () {
-    it('should create an user', async function () {
-      const Auth_class = new Auth
-      const user =  new User;
-      user.username = "johndoe";
-      user.email = "jdoe@gm.com";
-      user.password = "aPassToPassThePass";
-      user.library = ["mgs5", "ff7"];
-      const user_unstance =  await Auth_class.create_user(user)
-      expect(user_instance.username).to.equal(username);
-    });
+
+describe('Authentication module', async function () { 
     it('expect password to be encrypted',async () => {
       const Auth_class = new Auth
       const username = "johndo";
@@ -25,5 +14,17 @@ describe('Authentication module', async function () {
       const hash =  await Auth_class.hash_password(password, 10)
       const password_to_check = bcrypt.compareSync(password, hash)
       expect(password_to_check).to.be.true
+    })
+    it("expect to authenticate the User", async () => {
+      const Auth_class = new Auth
+      const user =  new User;
+      user.username = "johndoe";
+      user.email = "jdoe@gm.com";
+      user.password = "aPassToPassThePass";
+      user.library = ["mgs5", "ff7"];
+      const email = "jdoe@gm.com";
+      const password = "aPassToPassThePass"
+      const authentication = await Auth_class.authenticate(email, password)
+      expect(authentication).to.be.true
     })
 });
