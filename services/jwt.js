@@ -4,10 +4,10 @@ const fs = require('fs');
 class Jwt {
     constructor(){}
 
-    sign_in(username, password)
+    get_access_token(email, password)
     {
         const private_key = fs.readFileSync('keys/jwtRS256.key', {encoding: 'utf-8'})
-        const token = jwt.sign({username: username, password: password}, private_key, {algorithm: 'RS256'})
+        const token = jwt.sign({email: email, password: password}, private_key, {algorithm: 'RS256'})
         return token
     }
 
@@ -20,9 +20,4 @@ class Jwt {
     }
 }
 
-const jwt_test = new Jwt();
-const token = jwt_test.sign_in('nicolas', 'test');
-
-const payload = jwt_test.verify_token(token);
-
-console.log(payload);
+module.exports = Jwt
