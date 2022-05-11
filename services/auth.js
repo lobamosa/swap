@@ -5,8 +5,11 @@ class Auth
 {
     constructor()
     {}
-    authenticate()
+    async authenticate(email, password)
     {
+        const user = await User.findOne({where: { email: email}})
+        const is_valid = await bcrypt.compare(password, user.password);
+        return is_valid;
 
     }
     async create_user(user)
@@ -19,7 +22,7 @@ class Auth
     async hash_password(password, saltRounds)
     {
         const salt = await bcrypt.genSaltSync(saltRounds);
-        const hash = await bcrypt.hashSync(password, salt);
+        const hash = bcrypt.hashSync(password, salt);
         return hash;
     }
 }
